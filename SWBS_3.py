@@ -56,6 +56,30 @@ def on_message(client, userdata, msg):
             sorterPWM.ChangeDutyCycle(sorterAngle)
             time.sleep(0.1)
         time.sleep(2)
+        #    conveyor motor control
+        conveyorAngle = 5
+        if(int(conveyor) == 90):
+            while(conveyorAngle < 12): #90-180
+                conveyorAngle = conveyorAngle+2
+                conveyorPWM.ChangeDutyCycle(conveyorAngle)
+                time.sleep(0.1)
+            time.sleep(2)
+            while(conveyorAngle > 6): #180-90
+                conveyorAngle = conveyorAngle-2
+                conveyorPWM.ChangeDutyCycle(conveyorAngle)
+                time.sleep(0.1)
+            time.sleep(2)
+        else:
+            while(conveyorAngle>1): #90-0
+                conveyorAngle = conveyorAngle-2
+                conveyorPWM.ChangeDutyCycle(conveyorAngle)
+                time.sleep(0.1)
+            time.sleep(2)
+            while(conveyorAngle < 5): #0-90
+                conveyorAngle = conveyorAngle+2
+                conveyorPWM.ChangeDutyCycle(conveyorAngle)
+                time.sleep(0.1)
+            time.sleep(2)
         while(sorterAngle > 4): # right 30
             sorterAngle = sorterAngle-2
             sorterPWM.ChangeDutyCycle(sorterAngle)
@@ -67,39 +91,61 @@ def on_message(client, userdata, msg):
             sorterPWM.ChangeDutyCycle(sorterAngle)
             time.sleep(0.1)
         time.sleep(2)
+        #    conveyor motor control
+        conveyorAngle = 5
+        if(int(conveyor) == 90):
+            while(conveyorAngle < 12): #90-180
+                conveyorAngle = conveyorAngle+2
+                conveyorPWM.ChangeDutyCycle(conveyorAngle)
+                time.sleep(0.1)
+            time.sleep(2)
+            while(conveyorAngle > 6): #180-90
+                conveyorAngle = conveyorAngle-2
+                conveyorPWM.ChangeDutyCycle(conveyorAngle)
+                time.sleep(0.1)
+            time.sleep(2)
+        else:
+            while(conveyorAngle>1): #90-0
+                conveyorAngle = conveyorAngle-2
+                conveyorPWM.ChangeDutyCycle(conveyorAngle)
+                time.sleep(0.1)
+            time.sleep(2)
+            while(conveyorAngle < 5): #0-90
+                conveyorAngle = conveyorAngle+2
+                conveyorPWM.ChangeDutyCycle(conveyorAngle)
+                time.sleep(0.1)
+            time.sleep(2)
         while(sorterAngle < 4): # left 30
             sorterAngle = sorterAngle+2
             sorterPWM.ChangeDutyCycle(sorterAngle)
             time.sleep(0.1)
         time.sleep(2)
-
-#    conveyor motor control
-    conveyorAngle = 5
-    if(int(conveyor) == 90):
-        while(conveyorAngle < 12): #90-180
-            conveyorAngle = conveyorAngle+2
-            conveyorPWM.ChangeDutyCycle(conveyorAngle)
-            time.sleep(0.1)
-        time.sleep(2)
-        while(conveyorAngle > 6): #180-90
-            conveyorAngle = conveyorAngle-2
-            conveyorPWM.ChangeDutyCycle(conveyorAngle)
-            time.sleep(0.1)
-        time.sleep(2)
     else:
-        while(conveyorAngle>1): #90-0
-            conveyorAngle = conveyorAngle-2
-            conveyorPWM.ChangeDutyCycle(conveyorAngle)
-            time.sleep(0.1)
-        time.sleep(2)
-        while(conveyorAngle < 5): #0-90
-            conveyorAngle = conveyorAngle+2
-            conveyorPWM.ChangeDutyCycle(conveyorAngle)
-            time.sleep(0.1)
-        time.sleep(2)
+        #    conveyor motor control
+        conveyorAngle = 5
+        if(int(conveyor) == 90):
+            while(conveyorAngle < 12): #90-180
+                conveyorAngle = conveyorAngle+2
+                conveyorPWM.ChangeDutyCycle(conveyorAngle)
+                time.sleep(0.1)
+            time.sleep(2)
+            while(conveyorAngle > 6): #180-90
+                conveyorAngle = conveyorAngle-2
+                conveyorPWM.ChangeDutyCycle(conveyorAngle)
+                time.sleep(0.1)
+            time.sleep(2)
+        else:
+            while(conveyorAngle>1): #90-0
+                conveyorAngle = conveyorAngle-2
+                conveyorPWM.ChangeDutyCycle(conveyorAngle)
+                time.sleep(0.1)
+            time.sleep(2)
+            while(conveyorAngle < 5): #0-90
+                conveyorAngle = conveyorAngle+2
+                conveyorPWM.ChangeDutyCycle(conveyorAngle)
+                time.sleep(0.1)
+            time.sleep(2)       
 
-    
-    
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
