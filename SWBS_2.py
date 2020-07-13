@@ -1,6 +1,6 @@
 # This code is subscribed to the topic Sensors,whenever
 # values get updated it execute the AI Planning and
-# publish the result to the topic Sensors and data
+# publish the result to the topic Actuators and data
 # which is used for visualisation is send to the topic
 # visualise
 
