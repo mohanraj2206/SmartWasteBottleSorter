@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+      <meta http-equiv="refresh" content="5"/>
+      
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+       integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+      <link rel ="stylesheet" type= "text/css" href="{{ url_for('static', filename='styles/style.css')}}" />
+
+  </head> 
+
+  <body> 
+
+    <header>
+      <div class = "cointainer">
+        <h1>
+          Smart Waste Bottle Sorter
+        </h1>
+      </div>
+    </header>
+
+
+    <section class="gauge">
+
+
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+       google.charts.load('current', {'packages':['gauge']});
+       google.charts.setOnLoadCallback(drawChart);
+  
+       function drawChart() {
+  
+         var data = google.visualization.arrayToDataTable([
+           ['Label', 'Value'],
+           ['White Bin', {{ val1 }}],
+           ['Green Bin', {{ val2 }}],
+           ['Brown Bin', {{ val3 }}],
+         ]);
+  
+         var options = {
+           width: 3000, height: 200,
+           redFrom: 80, redTo: 100,
+           yellowFrom:60, yellowTo: 80,
+           minorTicks: 10,
+         };
+  
+         var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+  
+         chart.draw(data, options);
+       }
+     </script>
+     <div id="chart_div" style="width: 1000px; height: 200px;">
+    </div>
+  
+    </section>
+
+    <section class="counters">
+    <div class="container">
+      <div>
+        <i class="fab fa-whiteBottles fa-4x"></i>
+        <div class="counter" data-target="1000">{{ val4 }}</div>
+        <h3>White Bottles Count</h3>
+      </div>
+      <div>
+        <i class="fab fa-GreenBottles fa-4x"></i>
+        <div class="counter" data-target="1000">{{ val5 }}</div>
+        <h3>Green Bottles Count</h3>
+      </div>
+      <div>
+        <i class="fab fa-BrownBottles fa-4x"></i>
+        <div class="counter" data-target="1000">{{ val6 }}</div>
+        <h3>Brown Bottles Count</h3>
+      </div>
+    </div>
+    </section>
+  <body>
+  </body>
+</html>
