@@ -47,6 +47,12 @@ def on_message(client, userdata, msg):
     print(greenBin)
     print(brownBin)
     
+    # mapping the distance to percentage
+    
+    whiteBin = (100 - (int(whiteBin) * 20))
+    greenBin = (100 - (int(greenBin) * 20))
+    brownBin = (100 - (int(brownBin) * 20))
+    
     domainfile = "bottlesortingdomain.pddl"
 
     if((int(lightSensor) >= 400) & (int(lightSensor) <= 1290) ):
